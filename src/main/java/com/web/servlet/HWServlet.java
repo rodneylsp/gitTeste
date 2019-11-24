@@ -12,8 +12,7 @@ import java.io.PrintWriter;
 public class HWServlet extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         PrintWriter writer = resp.getWriter();
         writer.println("<!DOCTYPE html>");
@@ -23,5 +22,10 @@ public class HWServlet extends HttpServlet {
         writer.println("</body>");
         writer.println("</html>");
 
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
     }
 }
